@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>El Quite | Peña El Quite de El Casar</title>
+
+    <style>
+        /* =========================
+           ESTILOS GENERALES
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f1ea;
+            color: #222;
+        }
+
+        /* =========================
+           CABECERA
+        ========================= */
+
+        header {
+            height: 90px;
+            background-color: #111;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: hsl(192, 100%, 62%);
+        }
+
+        /* =========================
+           BARRA DE NAVEGACIÓN
+        ========================= */
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: rgb(48, 207, 255), 100%, 62%;
+        }
+
+        /* =========================
+           PORTADA
+        ========================= */
+
+        .hero {
+            height: 650px;
+
+            /* 
+            AQUI PUEDES PONER LA FOTO PRINCIPAL
+
+            Cambia "imagenes/portada.jpg"
+            por el nombre de tu foto.
+            */
+
+            background-image:
+                linear-gradient(
+                    rgba(0,0,0,0.55),
+                    rgba(0,0,0,0.55)
+                ),
+                url("elquite2.jpeg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 70px;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 23px;
+            margin-bottom: 30px;
+        }
+
+        .boton {
+            display: inline-block;
+
+            background-color: #57caff;
+            color: white;
+
+            padding: 14px 30px;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            border-radius: 5px;
+
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background-color: #56ffff;
+            transform: scale(1.05);
+        }
+
+        /* =========================
+           SECCIONES
+        ========================= */
+
+        section {
+            padding: 80px 10%;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .titulo h2 {
+            font-size: 40px;
+            color: #222;
+            margin-bottom: 15px;
+        }
+
+        .titulo .linea {
+            width: 80px;
+            height: 4px;
+            background-color: #b48a45;
+            margin: auto;
+        }
+
+        /* =========================
+           SOBRE LA PEÑA
+        ========================= */
+
+        .sobre {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .sobre-texto {
+            flex: 1;
+        }
+
+        .sobre-texto p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .sobre-imagen {
+            flex: 1;
+        }
+
+        .sobre-imagen img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* =========================
+           HISTORIA
+        ========================= */
+
+        #historia {
+            background-color: #e9e3d7;
+        }
+
+        .historia-contenido {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .historia-contenido p {
+            font-size: 18px;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           MIEMBROS
+        ========================= */
+
+        .miembros {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .miembro {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+
+            transition: 0.3s;
+        }
+
+        .miembro:hover {
+            transform: translateY(-8px);
+        }
+
+        .miembro img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .miembro-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .miembro-info h3 {
+            margin-bottom: 8px;
+            color: #b48a45;
+        }
+
+        /* =========================
+           JILGUERO
+        ========================= */
+
+        #jilguero {
+            background-color: #171717;
+            color: white;
+        }
+
+        .jilguero {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .jilguero-imagen {
+            flex: 1;
+        }
+
+        .jilguero-imagen img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .jilguero-texto {
+            flex: 1;
+        }
+
+        .jilguero-texto h3 {
+            color: #c49a55;
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .jilguero-texto p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* =========================
+           FIESTAS
+        ========================= */
+
+        #fiestas {
+            background-color: #e9e3d7;
+        }
+
+        .fiestas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .fiesta {
+            background-color: white;
+            padding: 30px;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+            transition: 0.3s;
+        }
+
+        .fiesta:hover {
+            transform: translateY(-5px);
+        }
+
+        .fiesta h3 {
+            color: #b48a45;
+            margin-bottom: 15px;
+        }
+
+        .fiesta p {
+            line-height: 1.6;
+        }
+
+        /* =========================
+           GALERÍA
+        ========================= */
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .galeria img {
+            width: 100%;
+            height: 250px;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+
+            transition: 0.3s;
+        }
+
+        .galeria img:hover {
+            transform: scale(1.03);
+        }
+
+        /* =========================
+           CONTACTO
+        ========================= */
+
+        #contacto {
+            background-color: #111;
+            color: white;
+            text-align: center;
+        }
+
+        #contacto h2 {
+            color: white;
+        }
+
+        .contacto-info {
+            font-size: 19px;
+            line-height: 2;
+        }
+
+        .contacto-info span {
+            color: #c49a55;
+            font-weight: bold;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background-color: #080808;
+            color: #aaa;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        /* =========================
+           RESPONSIVE PARA MÓVIL
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            header {
+                height: auto;
+                padding: 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 45px;
+            }
+
+            .sobre,
+            .jilguero {
+                flex-direction: column;
+            }
+
+            .miembros,
+            .fiestas,
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         CABECERA
+    ========================== -->
+
+    <header>
+
+        <div class="logo">
+            EL <span>QUITE</span>
+        </div>
+
+        <nav>
+            <ul>
+
+                <li>
+                    <a href="#inicio">Inicio</a>
+                </li>
+
+                <li>
+                    <a href="#historia">Historia</a>
+                </li>
+
+                <li>
+                    <a href="#miembros">Miembros</a>
+                </li>
+
+                <li>
+                    <a href="#jilguero">Jilguero</a>
+                </li>
+
+                <li>
+                    <a href="#fiestas">Fiestas</a>
+                </li>
+
+                <li>
+                    <a href="#galeria">Galería</a>
+                </li>
+
+                <li>
+                    <a href="#contacto">Contacto</a>
+                </li>
+
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         INICIO
+    ========================== -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <h1>EL QUITE</h1>
+
+            <p>
+                Peña El Quite · El Casar
+            </p>
+
+            <a href="#historia" class="boton">
+                CONÓCENOS
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SOBRE LA PEÑA
+    ========================== -->
+
+    <section>
+
+        <div class="titulo">
+
+            <h2>La Peña</h2>
+
+            <div class="linea"></div>
+
+        </div>
+
+
+        <div class="sobre">
+
+            <div class="sobre-texto">
+
+                <p>
+                    Bienvenidos a la Peña El Quite
+                    de El Casar.
+                </p>
+
+                <p>
+                    Un espacio dedicado a nuestra peña, a nuestra
+                    gente y a todos los momentos que hemos
+                    compartido a lo largo de los años.
+                </p>
+
+                <p>
+                    Aquí podrás conocer nuestra historia,
+                    nuestra fiesta, nuestra virgen de la antigua y algunos
+                    de los momentos más importantes de El Quite.
+                </p>
+
+            </div>
+
+
+            <div class="sobre-imagen">
+
+                <!--
+                    PON AQUÍ UNA FOTO DE LA PEÑA
+
+                    Ejemplo:
+                    imagenes/foto-peña.jpg
+                -->
+
+                <img
+                    src="fotopeña.jpeg"
+                    alt="Peña El Quite">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HISTORIA
+    ========================== -->
+
+    <section id="historia">
+
+        <div class="titulo">
+
+            <h2>Nuestra Historia</h2>
+
+            <div class="linea"></div>
+
+        </div>
+
+
+        <div class="historia-contenido">
+
+            <p>
+                La Peña El Quite nació en El Casar con la idea de
+                reunir a un grupo de amigos unidos por la afición,
+                la tradición y las ganas de disfrutar juntos de
+                las fiestas.
+            </p>
+
+            <p>
+                Desde sus comienzos, la peña ha ido creciendo y
+                formando parte de diferentes momentos de las
+                fiestas de El Casar.
+            </p>
+
+            <p>
+                A lo largo de los años se han vivido muchas
+                historias, celebraciones y anécdotas que han
+                convertido a El Quite en algo más que una peña:
+                una forma de compartir las fiestas con amigos.
+            </p>
+
+            <!--
+                PUEDES AÑADIR AQUÍ LAS FECHAS REALES
+
+                Ejemplo:
+
+                <p>
+                    <strong>1998:</strong>
+                    Fundación de la Peña El Quite.
+                </p>
+            -->
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MIEMBROS
+    ========================== -->
+
+    <section id="miembros">
+
+        <div class="titulo">
+
+            <h2>Nuestros Miembros Random</h2>
+
+            <div class="linea"></div>
+
+        </div>
+
+
+        <div class="miembros">
+
+
+            <!-- MIEMBRO 1 -->
+
+            <div class="miembro">
+
+                <img
+                    src="dibi2.jpeg"
+                    alt="EL DIBI">
+
+                <div class="miembro-info">
+
+                    <h3>EL DIBI</h3>
+
+                    <p>
+                        Miembro de la Peña El Quite.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- MIEMBRO 2 -->
+
+            <div class="miembro">
+
+                <img
+                    src="makelele2jpeg.jpeg"
+                    alt="MAKELELE">
+
+                <div class="miembro-info">
+
+                    <h3>MAKELELE</h3>
+
+                    <p>
+                        Miembro de la Peña El Quite.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- MIEMBRO 3 -->
+
+            <div class="miembro">
+
+                <img
+                    src="alcalde.jpeg"
+                    alt="ALCALDE">
+
+                <div class="miembro-info">
+
+                    <h3>ALCALDE</h3>
+
+                    <p>
+                        Miembro de la Peña El Quite.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!--
+                PARA AÑADIR MÁS MIEMBROS:
+
+                Copia uno de los bloques
+                <div class="miembro"> ... </div>
+            -->
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         JILGUERO
+    ========================== -->
+
+    <section id="jilguero">
+
+        <div class="titulo">
+
+            <h2 style="color:white;">
+                Jilguero
+            </h2>
+
+            <div class="linea"></div>
+
+        </div>
+
+
+        <div class="jilguero">
+
+            <div class="jilguero-imagen">
+
+                <!--
+                    FOTO DEL JILGUERO
+
+                    Cambia el nombre por tu imagen.
+                -->
+
+                <img
+                    src="jilguero1.jpeg"
+                    alt="El Jilguero">
+
+            </div>
+
+
+            <div class="jilguero-texto">
+
+                <h3>Jilguero</h3>
+
+                <p>
+                    Desde la prestigiosa ganaderia de Victoriano del Rio
+                    vino Jilguero, con el numero 51, un toro donado desinteresadamente,
+                    por razon del decimo aniversario de la peña El Quite
+                </p>
+
+                <p>
+                    Despues de todo un año, un duro año de trabajo y
+                    sacrificio por parte de toda la peña conseguimos
+                    cumplir un sueño para todos nostros y asi poder 
+                    colaborar con nuestro pueblo; El Casar
+                </p>
+
+                <!--
+                    AÑADE AQUÍ LA HISTORIA REAL DEL JILGUERO
+                -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FIESTAS
+    ========================== -->
+
+    <section id="fiestas">
+
+        <div class="titulo">
+
+            <h2>Fiestas</h2>
+
+            <div class="linea"></div>
+
+        </div>
+
+
+        <div class="fiestas">
+
+
+            <div class="fiesta">
+
+                <h3>LOS CHAVALES DISFRUTONES DE PREGON</h3>
+                    <img src= "fotopeña2.jpeg" alt="elquite" width="200">
+                <p>
+                
+                    
+                </p>
+
+            </div>
+
+
+            <div class="fiesta">
+
+                <h3>ATROPELLO CATASFROFICO ENTRE HERMANOS</h3>
+                    <img src= "atropello.jpeg" alt="elquite" width="200">
+
+                <p>
+                    
+                    
+                </p>
+
+            </div>
+
+
+            <div class="fiesta">
+
+                <h3>LOS CHAVALES DISFRUTONES CON PARROCHO</h3>
+                    <img src= "parrocho.jpeg" alt="elquite" width="200">
+
+                <p>
+                    
+                    
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         GALERÍA
+    ========================== -->
+
+    <section id="galeria">
+
+        <div class="titulo">
+
+            <h2>Galería</h2>
+
+            <div class="linea"></div>
+
+        </div>
+
+
+        <div class="galeria">
+
+            <!--
+                AÑADE TUS FOTOS AQUÍ
+
+                Solo tienes que cambiar los nombres:
+                foto1.jpg
+                foto2.jpg
+                etc.
+            -->
+
+
+            <img
+                src="patrol.jpeg"
+                alt="Foto El Quite">
+
+
+            <img
+                src="yuyas.jpeg"
+                alt="Foto El Quite">
+
+
+            <img
+                src="quinto.jpeg"
+                alt="Foto El Quite">
+
+
+            <img
+                src="dibi1.jpeg"
+                alt="Foto El Quite">
+
+
+            <img
+                src="jilguero2.jpeg"
+                alt="Foto El Quite">
+
+
+            <img
+                src="makelele1.jpeg"
+                alt="Foto El Quite">
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACTO
+    ========================== -->
+
+    <section id="contacto">
+
+        <div class="titulo">
+
+            <h2>Contacto</h2>
+
+            <div class="linea"></div>
+
+        </div>
+
+
+        <div class="contacto-info">
+
+            <p>
+                <span>Peña:</span> El Quite
+            </p>
+
+            <p>
+                <span>Localidad:</span> El Casar
+            </p>
+
+            <p>
+                <span>Instagram:</span>
+                @elquite__
+            </p>
+
+            <!--
+                CAMBIA @elquite POR EL INSTAGRAM REAL
+            -->
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PIE DE PÁGINA
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Peña El Quite de El Casar
+        </p>
+
+        <p>
+            Todos los derechos reservados por el nabo de Raul.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
+```
